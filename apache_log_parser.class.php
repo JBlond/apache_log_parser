@@ -34,7 +34,8 @@ class apache_log_parser {
 		$this->file = $file;
 		$this->inhalt = file_get_contents($this->file);
 		if(!$this->inhalt){
-			die("Can not open file: '".$this->file."' <br>Check the file name!");
+			echo "Can not open file: '".$this->file."' <br>Check the file name!";
+			return;
 		}
 		$this->paralyse_log();
 	}
@@ -64,8 +65,8 @@ class apache_log_parser {
 			){
 				continue;
 			}
-			$in = array('type' => $back['8'],'date' => $back['3'],'info' => $back['0'],'detail' => $back['6']);
-			$this->data[] = $in;
+			$input = array('type' => $back['8'],'date' => $back['3'],'info' => $back['0'],'detail' => $back['6']);
+			$this->data[] = $input;
 		}
 	}
 
@@ -91,7 +92,7 @@ class apache_log_parser {
 			} else {
 				$detail[$this->data[$a]['detail']] = 1;
 				$this->stats['content_type'][$this->data[$a]['detail']] = $this->data[$a]['type'];
-			} 
+			}
 		}
 		// statistics + types
 		$this->stats['analyzed_rows'] = sizeof($this->data);
@@ -101,7 +102,7 @@ class apache_log_parser {
 			$temp = array('name' => $key[$x],'value' => $type[$key[$x]], 'pro' => round(($type[$key[$x]]*100/$this->stats['analyzed_rows']),4).' %');
 			$this->stats['rowtype'][] = $temp;
 		}
-		
+
 		$this->stats['errCount'] = sizeof($detail);
 		array_multisort($detail, SORT_DESC, SORT_NUMERIC);
 		$this->stats['err'] = $detail;
@@ -124,8 +125,8 @@ class apache_log_parser {
 		$out .= '<tr><td><b>Rank</b></td><td><b>count</b></td><td><b>type</b></td><td><b>Error</b></td></tr>';
 		$keys = array_keys($this->stats['err']);
 		for($y = 0; $y < 50; $y++){
-			if(trim($this->stats['err'][$keys[$y]]) == ''){ 
-				continue; 
+			if(trim($this->stats['err'][$keys[$y]]) == ''){
+				continue;
 			}
 			$out .= '<tr><td>'.($y+1).'</td><td>'.$this->stats['err'][$keys[$y]].'</td><td>'.$this->stats['content_type'][$keys[$y]] .'</td><td>'. htmlentities($keys[$y]).'</td></tr>' ."\n";
 		}
@@ -161,7 +162,7 @@ class apache_log_parser {
 			border-right:1px solid #000000;
 			border-top:1px solid #000000;
 		}
-		
+
 		tr > td {
 			border-left:1px solid #000000;
 		}

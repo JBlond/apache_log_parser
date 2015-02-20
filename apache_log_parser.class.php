@@ -170,4 +170,3 @@ class apache_log_parser {
 		return $out;
 	}
 }
-?>

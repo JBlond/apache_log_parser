@@ -65,8 +65,8 @@ class apache_log_parser {
 			){
 				continue;
 			}
-			$input = array('type' => $back['8'],'date' => $back['3'],'info' => $back['0'],'detail' => $back['6']);
-			$this->data[] = $input;
+			$output = array('type' => $back['8'],'date' => $back['3'],'info' => $back['0'],'detail' => $back['6']);
+			$this->data[] = $output;
 		}
 	}
 

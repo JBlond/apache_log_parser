@@ -46,7 +46,6 @@ class apache_log_parser {
 	*/
 	private function parse_data(){
 		$input = explode("\n",$this->inhalt);
-		$data = array();
 		$this->stats['rows'] = 0;
 		$array_size = sizeof($input);
 		for($i = 0; $i < $array_size; $i++){

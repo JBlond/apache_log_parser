@@ -97,7 +97,7 @@ class apache_log_parser {
 		$this->stats['analyzed_rows'] = sizeof($this->data);
 		$key = array_keys($type);
 		$this->stats['rowtypeCount'] = sizeof($key);
-		for($x = 0; $x < sizeof($key); $x++) {
+		for($x = 0; $x < $this->stats['rowtypeCount']; $x++) {
 			$temp = array('name' => $key[$x],'value' => $type[$key[$x]], 'pro' => round(($type[$key[$x]]*100/$this->stats['analyzed_rows']),4).' %');
 			$this->stats['rowtype'][] = $temp;
 		}

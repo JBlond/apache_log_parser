@@ -27,7 +27,6 @@ class apache_log_parser {
 
 	/**
 	* @param String $file
-	* @return FruitParseError
 	* @access public
 	*/
 	public function __construct($file){

@@ -11,7 +11,7 @@ class apache_log_parser {
 	* @var String
 	* @access private
 	*/
-	private $inhalt = "";
+	private $content = "";
 
 	/**
 	* @var Array
@@ -31,8 +31,8 @@ class apache_log_parser {
 	*/
 	public function __construct($file){
 		$this->file = $file;
-		$this->inhalt = file_get_contents($this->file);
-		if(!$this->inhalt){
+		$this->content = file_get_contents($this->file);
+		if(!$this->content){
 			echo "Can not open file: '".$this->file."' <br>Check the file name!";
 			return;
 		}
@@ -44,7 +44,7 @@ class apache_log_parser {
 	* @access private
 	*/
 	private function parse_data(){
-		$input = explode("\n",$this->inhalt);
+		$input = explode("\n",$this->content);
 		$this->stats['rows'] = 0;
 		$array_size = sizeof($input);
 		for($i = 0; $i < $array_size; $i++){

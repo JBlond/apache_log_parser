@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class apache_log_parser
+ */
 class apache_log_parser {
 
 	/**
@@ -14,13 +18,13 @@ class apache_log_parser {
 	private $content = "";
 
 	/**
-	* @var Array
+	* @var array
 	* @access private
 	*/
 	private $data = array();
 
 	/**
-	* @var Array
+	* @var array
 	* @access public
 	*/
 	private $stats = array();
@@ -142,10 +146,10 @@ class apache_log_parser {
 	*/
 	public function output(){
 		$out = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'.
-		'<html xmlns="http://www.w3.org/1999/xhtml"><head><title>apache log parser</title>
+		'<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><title>apache log parser</title>
 		<style type="text/css">
 		* {
-			font-family: verdana;
+			font-family: verdana,serif;
 			font-size: 11px;
 			background-color: #EFEFEF;
 			color: #101010;

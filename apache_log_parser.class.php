@@ -9,25 +9,25 @@ class apache_log_parser {
 	* @var String
 	* @access private
 	*/
-	private $file = "";
+	protected $file = "";
 
 	/**
 	* @var String
 	* @access private
 	*/
-	private $content = "";
+	protected $content = "";
 
 	/**
 	* @var array
 	* @access private
 	*/
-	private $data = array();
+	protected $data = array();
 
 	/**
 	* @var array
 	* @access public
 	*/
-	private $stats = array();
+	protected $stats = array();
 
 	/**
 	* @param String $file
@@ -47,7 +47,7 @@ class apache_log_parser {
 	* Parse raw data and keep only errors
 	* @access private
 	*/
-	private function parse_data(){
+	protected function parse_data(){
 		$input = explode("\n",$this->content);
 		$this->stats['rows'] = 0;
 		$array_size = sizeof($input);
@@ -76,7 +76,7 @@ class apache_log_parser {
 	* parse the log file
 	* @access private
 	*/
-	private function paralyse_log(){
+	protected function paralyse_log(){
 		$this->parse_data();
 		$type = array();
 		$detail = array();

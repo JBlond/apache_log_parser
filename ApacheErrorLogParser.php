@@ -3,7 +3,7 @@
 /**
  * Class apache_error_log_parser
  */
-class apache_error_log_parser extends apache_log_parser
+class ApacheErrorLogParser extends ApacheLogParser
 {
 
     /**

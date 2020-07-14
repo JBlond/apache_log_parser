@@ -3,7 +3,7 @@
 /**
  * Class apache_log_parser
  */
-class apache_log_parser
+class ApacheLogParser
 {
     /**
      * @var String

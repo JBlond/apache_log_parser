@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="apache-log-parser">
+	<description>apache log parser</description>
+	<rule ref="PSR12" />
+	<file>./</file>
+</ruleset>

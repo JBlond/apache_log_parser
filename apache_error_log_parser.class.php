@@ -19,20 +19,21 @@ class apache_error_log_parser extends apache_log_parser
      * Parse raw data and keep only errors
      * @access private
      */
-    protected function parse_data(){
-        $input = explode("\n",$this->content);
+    protected function parseData()
+    {
+        $input = explode("\n", $this->content);
         $this->stats['rows'] = 0;
         $array_size = sizeof($input);
-        for($i = 0; $i < $array_size; $i++){
+        for ($i = 0; $i < $array_size; $i++) {
             $this->stats['rows']++;
-            $back = explode(" ",$input[$i]);
+            $back = explode(" ", $input[$i]);
 
-            if(!isset($back['9'])){ //new line in file / empty line
+            if (!isset($back['9'])) { //new line in file / empty line
                 continue;
             }
 
-            $type_input = str_replace(':','', $back['9']);
-            switch ($type_input){
+            $type_input = str_replace(':', '', $back['9']);
+            switch ($type_input) {
                 case "AH00094":
                     $type = 'Called Command line';
                     break;
@@ -58,7 +59,7 @@ class apache_error_log_parser extends apache_log_parser
                     $type = 'version information';
                     break;
                 case "AH00364":
-                    $type ='Child: All worker threads have exited';
+                    $type = 'Child: All worker threads have exited';
                     break;
                 default:
                     $type = $type_input;

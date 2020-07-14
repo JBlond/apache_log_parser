@@ -123,14 +123,22 @@ class ApacheLogParser
      */
     public function table()
     {
-        $out = '<br /><br />Parsed ' . $this->stats['rows'] . ' lines. Found <b>' . $this->stats['analyzed_rows'] . '</b> errors with <b>' . $this->stats['rowtypeCount'] . '</b> type(s)<br /><br />';
+        $out = '<br /><br />Parsed '
+            . $this->stats['rows']
+            . ' lines. Found <b>'
+            . $this->stats['analyzed_rows']
+            . '</b> errors with <b>'
+            . $this->stats['rowtypeCount']
+            . '</b> type(s)<br /><br />';
         $out .= '<table>';
         $out .= '<tr><td><b>Name</b></td><td><b>Value</b></td><td><b>Percent</b></td></tr>';
         foreach ($this->stats['rowtype'] as $val) {
             $out .= '<tr><td>' . $val['name'] . '</td><td>' . $val['value'] . '</td><td>' . $val['pro'] . '</td></tr>';
         }
         $out .= '</table>';
-        $out .= '<br /><br />Listed the 50 most counted errors ( overall ' . $this->stats['errCount'] . ' different errors ).<br /><br />';
+        $out .= '<br /><br />Listed the 50 most counted errors ( overall '
+            . $this->stats['errCount']
+            . ' different errors ).<br /><br />';
         $out .= '<table>';
         $out .= '<tr><td><b>Rank</b></td><td><b>count</b></td><td><b>type</b></td><td><b>Error</b></td></tr>';
         $keys = array_keys($this->stats['err']);
@@ -142,7 +150,9 @@ class ApacheLogParser
             if (trim($this->stats['err'][$keys[$y]]) == '') {
                 continue;
             }
-            $out .= '<tr><td>' . ($y + 1) . '</td><td>' . $this->stats['err'][$keys[$y]] . '</td><td>' . $this->stats['content_type'][$keys[$y]] . '</td><td>' . htmlentities($keys[$y]) . '</td></tr>' . "\n";
+            $out .= '<tr><td>' . ($y + 1) . '</td><td>'
+                . $this->stats['err'][$keys[$y]] . '</td><td>'
+                . $this->stats['content_type'][$keys[$y]] . '</td><td>' . htmlentities($keys[$y]) . '</td></tr>' . "\n";
         }
         $out .= '</table>';
         return $out;
@@ -154,7 +164,8 @@ class ApacheLogParser
      */
     public function output()
     {
-        $out = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">' .
+        return '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">' .
             '<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><title>apache log parser</title>
 		<style type="text/css">
 		* {
@@ -170,7 +181,7 @@ class ApacheLogParser
 		}
 		table {
 			/* border:1px solid #000000; */
-			cell-spacing:none;
+			cell-spacing: none;
 		}
 		td {
 			border-bottom:1px solid #000000;
@@ -182,6 +193,5 @@ class ApacheLogParser
 			border-left:1px solid #000000;
 		}
 		</style></head><body>' . $this->table() . '</body></html>';
-        return $out;
     }
 }

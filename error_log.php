@@ -1,5 +1,7 @@
 <?php
 
+use jblond\Apache_Log_Parser\ApacheErrorLogParser;
+
 require 'ApacheLogParser.php';
 require 'ApacheErrorLogParser.php';
 

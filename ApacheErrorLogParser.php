@@ -1,5 +1,7 @@
 <?php
 
+namespace jblond\Apache_Log_Parser;
+
 /**
  * Class apache_error_log_parser
  */

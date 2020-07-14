@@ -1,0 +1,20 @@
+{
+  "authors": [
+    {
+      "name": "JBlond",
+      "email": "leet31337@web.de"
+    }
+  ],
+  "description": "Apache log parser: Filter your logs for errors",
+  "license": "MIT",
+  "minimum-stability": "stable",
+  "name": "jblond/apache_log_parser",
+  "require": {
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "*"
+  },
+  "scripts": {
+    "php_src": "phpcs --standard=phpcs.xml --ignore=*vendor/* -s -p --colors ./"
+  }
+}

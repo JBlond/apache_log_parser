@@ -16,5 +16,10 @@
   },
   "scripts": {
     "php_src": "phpcs --standard=phpcs.xml --ignore=*vendor/* -s -p --colors ./"
+  },
+  "autoload" : {
+      "psr-4" : {
+          "jblond\\Apache_Log_Parser\\" : "."
+      }
   }
 }

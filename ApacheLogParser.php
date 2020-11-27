@@ -35,7 +35,7 @@ class ApacheLogParser
      * @param String $file
      * @access public
      */
-    public function __construct($file)
+    public function __construct(string $file)
     {
         $this->file = $file;
         $this->content = file_get_contents($this->file);
@@ -49,8 +49,9 @@ class ApacheLogParser
     /**
      * Parse raw data and keep only errors
      * @access private
+     * @return void
      */
-    protected function parseData()
+    protected function parseData(): void
     {
         $input = explode("\n", $this->content);
         $this->stats['rows'] = 0;
@@ -79,8 +80,9 @@ class ApacheLogParser
     /**
      * parse the log file
      * @access private
+     * @return void
      */
-    protected function paralyseLog()
+    protected function paralyseLog(): void
     {
         $this->parseData();
         $type = array();
@@ -123,7 +125,7 @@ class ApacheLogParser
      * @access public
      * @return String $out
      */
-    public function table()
+    public function table(): string
     {
         $out = '<br /><br />Parsed '
             . $this->stats['rows']
@@ -164,7 +166,7 @@ class ApacheLogParser
      * @access public
      * @return String $out
      */
-    public function output()
+    public function output(): string
     {
         return '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">' .
@@ -183,7 +185,7 @@ class ApacheLogParser
 		}
 		table {
 			/* border:1px solid #000000; */
-			cell-spacing: none;
+			padding: 0;
 		}
 		td {
 			border-bottom:1px solid #000000;

@@ -10,9 +10,9 @@ class ApacheErrorLogParser extends ApacheLogParser
 
     /**
      * apache_error_log_parser constructor.
-     * @param $file
+     * @param string $file
      */
-    public function __construct($file)
+    public function __construct(string $file)
     {
         parent::__construct($file);
     }
@@ -20,8 +20,9 @@ class ApacheErrorLogParser extends ApacheLogParser
     /**
      * Parse raw data and keep only errors
      * @access private
+     * @return void
      */
-    protected function parseData()
+    protected function parseData(): void
     {
         $input = explode("\n", $this->content);
         $this->stats['rows'] = 0;

@@ -11,7 +11,7 @@ class ApacheLogParser
      * @var String
      * @access private
      */
-    protected $file = "";
+    protected string $file = "";
 
     /**
      * @var String
@@ -23,13 +23,13 @@ class ApacheLogParser
      * @var array
      * @access private
      */
-    protected $data = array();
+    protected array $data = array();
 
     /**
      * @var array
      * @access public
      */
-    protected $stats = array();
+    protected array $stats = array();
 
     /**
      * @param String $file

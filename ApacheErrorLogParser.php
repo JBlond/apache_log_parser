@@ -7,16 +7,6 @@ namespace jblond\Apache_Log_Parser;
  */
 class ApacheErrorLogParser extends ApacheLogParser
 {
-
-    /**
-     * apache_error_log_parser constructor.
-     * @param string $file
-     */
-    public function __construct(string $file)
-    {
-        parent::__construct($file);
-    }
-
     /**
      * Parse raw data and keep only errors
      * @access private

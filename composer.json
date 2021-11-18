@@ -10,11 +10,11 @@
   "minimum-stability": "stable",
   "name": "jblond/apache_log_parser",
   "require": {
-    "php": ">=7.1"
+    "php": ">=7.4"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "*",
-    "vimeo/psalm": "^4.2"
+    "vimeo/psalm": "^4.12.0"
   },
   "scripts": {
     "php_src": "phpcs --standard=phpcs.xml --ignore=*vendor/* -s -p --colors ./"

@@ -26,37 +26,18 @@ class ApacheErrorLogParser extends ApacheLogParser
             }
 
             $type_input = str_replace(':', '', $back['9']);
-            switch ($type_input) {
-                case "AH00094":
-                    $type = 'Called Command line';
-                    break;
-                case "AH00418":
-                    $type = 'Created child process';
-                    break;
-                case "AH00354":
-                    $type = 'Starting worker threads';
-                    break;
-                case "AH00422":
-                    $type = 'Parent: Received shutdown signal';
-                    break;
-                case "AH00424":
-                    $type = 'Parent: Received restart signal';
-                    break;
-                case "AH00430":
-                    $type = 'Child process exited successfully';
-                    break;
-                case "AH00455":
-                    $type = 'resuming normal operations';
-                    break;
-                case "AH00456":
-                    $type = 'version information';
-                    break;
-                case "AH00364":
-                    $type = 'Child: All worker threads have exited';
-                    break;
-                default:
-                    $type = $type_input;
-            }
+            $type = match ($type_input) {
+                "AH00094" => 'Called Command line',
+                "AH00418" => 'Created child process',
+                "AH00354" => 'Starting worker threads',
+                "AH00422" => 'Parent: Received shutdown signal',
+                "AH00424" => 'Parent: Received restart signal',
+                "AH00430" => 'Child process exited successfully',
+                "AH00455" => 'resuming normal operations',
+                "AH00456" => 'version information',
+                "AH00364" => 'Child: All worker threads have exited',
+                default => $type_input,
+            };
             $output = array('type' => $type_input, 'date' => $back['3'], 'info' => $back['5'], 'detail' => $type);
             $this->data[] = $output;
         }

@@ -17,7 +17,7 @@ class ApacheLogParser
      * @var String
      * @access private
      */
-    protected $content = "";
+    protected string|false $content = "";
 
     /**
      * @var array
